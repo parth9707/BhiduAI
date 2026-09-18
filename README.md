@@ -4,6 +4,8 @@
 
 BhiduAI is a learning-focused AI project that implements a compact character-level decoder-only Transformer and trains it on a local text dataset. It also includes a Flask-based web interface that currently uses a locally running Ollama model for conversational responses.
 
+![BhiduAI UI](screenshots/bhiduai-ui.png)
+
 ## Overview
 
 BhiduAI currently contains two related AI workflows:
