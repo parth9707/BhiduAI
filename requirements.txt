@@ -1,0 +1,6 @@
+Flask
+torch
+requests
+Authlib
+python-dotenv
+google-cloud-firestore
