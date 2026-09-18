@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BhiduAI — Local AI Project</title>
+
+    <meta name="description"
+          content="BhiduAI — an experimental local AI engineering project built with Python, PyTorch, Flask and Ollama.">
+
+    <!-- Social preview -->
+    <meta property="og:title" content="BhiduAI — Local AI Project">
+    <meta property="og:description" content="An experimental local AI engineering project built with Python, PyTorch, Flask and Ollama.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#050505">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated glyph background (drawn/parallaxed by script.js) -->
+    <canvas id="glyph-canvas" aria-hidden="true"></canvas>
+
+    <!-- NAVBAR -->
+
+    <div class="container">
+        <header>
+            <nav>
+
+                <a href="#top" class="logo">
+                    BHIDU<span>AI</span>
+                </a>
+
+                <div class="nav-right">
+
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#stack">Stack</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                    </ul>
+
+                    <div class="social-links">
+
+                        <a
+                            href="https://www.linkedin.com/in/parth-avatade-367761389/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon"
+                            aria-label="LinkedIn profile"
+                        >
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.86c0-1.64-.03-3.75-2.29-3.75-2.3 0-2.65 1.79-2.65 3.63V23h-4V8z"/>
+                            </svg>
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/unbotheredx_07/?hl=en"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon"
+                            aria-label="Instagram profile"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                                <circle cx="12" cy="12" r="4.2"/>
+                                <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+                            </svg>
+                        </a>
+
+                    </div>
+
+                    <a
+                        href="https://github.com/parth9707/BhiduAI"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="github-btn"
+                    >
+                        GitHub ↗
+                    </a>
+
+                    <button
+                        class="nav-toggle"
+                        id="nav-toggle"
+                        type="button"
+                        aria-label="Toggle navigation menu"
+                        aria-expanded="false"
+                        aria-controls="nav-links"
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+
+                </div>
+
+            </nav>
+        </header>
+    </div>
+
+
+    <main id="top">
+
+        <div class="container">
+
+            <!-- HERO -->
+
+            <section class="hero" aria-label="Introduction">
+
+                <div class="badge">
+                    ◉ Experimental Local AI Project
+                </div>
+
+                <h1>
+                    Building my
+                    <span class="gradient">own AI systems.</span>
+                </h1>
+
+                <p>
+                    BhiduAI is a learning-focused AI engineering project
+                    exploring Transformers, local LLM inference,
+                    web applications, authentication and persistent
+                    conversations.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#about" class="btn btn-primary">
+                        Explore BhiduAI ↓
+                    </a>
+
+                    <a
+                        href="https://github.com/parth9707/BhiduAI"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                    >
+                        View Source ↗
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- ABOUT -->
+
+            <section id="about">
+
+                <div class="section-label">
+                    01 — About
+                </div>
+
+                <h2>
+                    What is BhiduAI?
+                </h2>
+
+                <p class="section-description">
+                    An experimental project created to understand
+                    how AI systems work by actually building and
+                    experimenting with them.
+                </p>
+
+                <div class="about-grid">
+
+                    <div class="about-text reveal">
+
+                        <p>
+                            BhiduAI combines a custom TinyGPT
+                            Transformer implementation with a practical
+                            local AI web application.
+                        </p>
+
+                        <p>
+                            The project uses Python and PyTorch for
+                            model experimentation, while Flask,
+                            Ollama and Llama provide the foundation
+                            for the current web assistant.
+                        </p>
+
+                        <p>
+                            The goal is not simply to use an AI model,
+                            but to learn the engineering behind AI
+                            systems.
+                        </p>
+
+                    </div>
+
+                    <blockquote class="quote reveal">
+                        "Learn the technology by building it,
+                        breaking it, and rebuilding it."
+                    </blockquote>
+
+                </div>
+
+            </section>
+
+
+            <!-- FEATURES -->
+
+            <section aria-labelledby="components-heading">
+
+                <div class="section-label">
+                    02 — Components
+                </div>
+
+                <h2 id="components-heading">
+                    Two AI approaches.
+                </h2>
+
+                <p class="section-description">
+                    BhiduAI currently explores both custom model
+                    development and practical local LLM applications.
+                </p>
+
+                <div class="cards">
+
+                    <div class="card reveal">
+                        <div class="card-icon" aria-hidden="true">🧠</div>
+                        <h3>TinyGPT</h3>
+                        <p>
+                            A compact character-level decoder-only
+                            Transformer implemented using PyTorch
+                            and trained on a local dataset.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon" aria-hidden="true">⚡</div>
+                        <h3>Local LLM</h3>
+                        <p>
+                            A practical conversational assistant
+                            powered locally through Ollama and
+                            Llama 3.2 3B.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon" aria-hidden="true">🌐</div>
+                        <h3>Flask Web App</h3>
+                        <p>
+                            A custom dark-themed interface providing
+                            authentication, conversations and
+                            persistent chat history.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon" aria-hidden="true">☁️</div>
+                        <h3>Cloud Storage</h3>
+                        <p>
+                            Google Cloud Firestore is used to store
+                            authenticated users' conversation history.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ARCHITECTURE -->
+
+            <section id="architecture">
+
+                <div class="section-label">
+                    03 — Architecture
+                </div>
+
+                <h2>
+                    How it works.
+                </h2>
+
+                <p class="section-description">
+                    The project contains separate workflows for
+                    training the custom model and running the
+                    practical web assistant.
+                </p>
+
+                <div class="architecture reveal">
+<pre>
+<span class="highlight">Custom TinyGPT</span>
+
+Local Dataset
+     │
+     ▼
+Character Tokenization
+     │
+     ▼
+Transformer Training
+     │
+     ▼
+bhiduai.pth
+     │
+     ▼
+Terminal Chatbot
+
+
+<span class="highlight">Web Assistant</span>
+
+User
+ │
+ ▼
+Flask Web App
+ │
+ ├──────────────► Google Authentication
+ │
+ ▼
+Ollama
+ │
+ ▼
+Llama 3.2 3B
+ │
+ ▼
+AI Response
+ │
+ ▼
+Firestore
+(Chat History)
+</pre>
+                </div>
+
+            </section>
+
+
+            <!-- SCREENSHOT -->
+
+            <section aria-labelledby="interface-heading">
+
+                <div class="section-label">
+                    04 — Interface
+                </div>
+
+                <h2 id="interface-heading">
+                    BhiduAI in action.
+                </h2>
+
+                <p class="section-description">
+                    A custom dark-themed interface built for the
+                    local AI assistant.
+                </p>
+
+                <figure class="screenshot reveal">
+
+                    <div class="screenshot-top">
+                        BhiduAI / Local Web Assistant
+                    </div>
+
+                    <!--
+                    Put your screenshot at:
+
+                    screenshots/bhiduai-ui.png
+                    -->
+
+                    <img
+                        src="screenshots/bhiduai-ui.png"
+                        alt="Screenshot of the BhiduAI dark-themed web chat interface"
+                        loading="lazy"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <figcaption class="placeholder" style="display:none;">
+                        Add screenshots/bhiduai-ui.png to see it here.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <!-- STACK -->
+
+            <section id="stack">
+
+                <div class="section-label">
+                    05 — Technology
+                </div>
+
+                <h2>
+                    Built with.
+                </h2>
+
+                <p class="section-description">
+                    Technologies used across the model,
+                    application and infrastructure.
+                </p>
+
+                <ul class="stack reveal">
+                    <li class="tech">Python</li>
+                    <li class="tech">PyTorch</li>
+                    <li class="tech">Transformer</li>
+                    <li class="tech">Flask</li>
+                    <li class="tech">Ollama</li>
+                    <li class="tech">Llama 3.2 3B</li>
+                    <li class="tech">Google OAuth</li>
+                    <li class="tech">Firestore</li>
+                    <li class="tech">HTML</li>
+                    <li class="tech">CSS</li>
+                    <li class="tech">JavaScript</li>
+                    <li class="tech">Git</li>
+                    <li class="tech">GitHub</li>
+                </ul>
+
+            </section>
+
+
+            <!-- ROADMAP -->
+
+            <section id="roadmap">
+
+                <div class="section-label">
+                    06 — Roadmap
+                </div>
+
+                <h2>
+                    Still building.
+                </h2>
+
+                <p class="section-description">
+                    BhiduAI is an evolving project. These are some
+                    of the areas planned for future development.
+                </p>
+
+                <ol class="roadmap">
+
+                    <li class="roadmap-item done reveal">
+                        <h3>Custom TinyGPT</h3>
+                        <p>Implemented and trained locally.</p>
+                    </li>
+
+                    <li class="roadmap-item done reveal">
+                        <h3>Local LLM inference</h3>
+                        <p>Ollama + Llama integration.</p>
+                    </li>
+
+                    <li class="roadmap-item done reveal">
+                        <h3>Web application</h3>
+                        <p>Flask-based conversational interface.</p>
+                    </li>
+
+                    <li class="roadmap-item done reveal">
+                        <h3>Authentication &amp; Chat History</h3>
+                        <p>Google authentication and Firestore persistence.</p>
+                    </li>
+
+                    <li class="roadmap-item reveal">
+                        <h3>Web Search</h3>
+                        <p>Explore access to current web information.</p>
+                    </li>
+
+                    <li class="roadmap-item reveal">
+                        <h3>Weather &amp; Live Information</h3>
+                        <p>Integrate useful real-time data sources.</p>
+                    </li>
+
+                    <li class="roadmap-item reveal">
+                        <h3>Deeper Model Integration</h3>
+                        <p>Continue experimenting with the custom model and application.</p>
+                    </li>
+
+                </ol>
+
+            </section>
+
+
+            <!-- GITHUB -->
+
+            <section aria-labelledby="opensource-heading">
+
+                <div class="github-section reveal">
+
+                    <div class="section-label">
+                        07 — Open Source
+                    </div>
+
+                    <h2 id="opensource-heading">
+                        Explore the code.
+                    </h2>
+
+                    <p>
+                        The BhiduAI source code, documentation and
+                        project structure are available on GitHub.
+                    </p>
+
+                    <a
+                        href="https://github.com/parth9707/BhiduAI"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        Open GitHub Repository ↗
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="container">
+            <div>© <span data-year>2026</span> BhiduAI</div>
+
+            <div class="footer-socials">
+                <a href="https://github.com/parth9707/BhiduAI" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/parth-avatade-367761389/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.instagram.com/unbotheredx_07/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+
+            <div>Built with Python • PyTorch • Curiosity</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,627 @@
+/* ============================================
+   BhiduAI — stylesheet
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: #f5f5f5;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background glow */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #5b21b6;
+    filter: blur(180px);
+    opacity: 0.12;
+    top: -200px;
+    left: -150px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #2563eb;
+    filter: blur(180px);
+    opacity: 0.10;
+    bottom: -150px;
+    right: -100px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Animated glyph background */
+#glyph-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #8b5cf6;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+/* NAVBAR */
+
+nav {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #1b1b1b;
+    position: relative;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #8b5cf6;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.nav-links a {
+    padding: 4px 2px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+    border-color: #8b5cf6;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    color: #aaa;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.social-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.social-icon:hover {
+    color: #fff;
+    background: #111;
+    transform: translateY(-2px);
+}
+
+.github-btn {
+    border: 1px solid #333;
+    padding: 9px 15px;
+    border-radius: 8px;
+    transition: 0.2s;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.github-btn:hover {
+    border-color: #777;
+    background: #111;
+}
+
+/* Mobile nav toggle (hidden on desktop) */
+.nav-toggle {
+    display: none;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #292929;
+    border-radius: 8px;
+    background: transparent;
+    color: #f5f5f5;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nav-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 680px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 850px;
+}
+
+.badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 7px 12px;
+    border: 1px solid #292929;
+    border-radius: 50px;
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 25px;
+    background: rgba(255,255,255,0.02);
+}
+
+.hero h1 {
+    font-size: clamp(55px, 9vw, 105px);
+    line-height: 0.95;
+    letter-spacing: -5px;
+    margin-bottom: 28px;
+}
+
+.gradient {
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #9f7aea,
+        #60a5fa
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    max-width: 680px;
+    color: #a7a7a7;
+    font-size: 19px;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 20px;
+    border-radius: 9px;
+    font-size: 14px;
+    border: 1px solid #333;
+    transition: 0.25s;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background: #ddd;
+}
+
+.btn-secondary:hover {
+    background: #111;
+    border-color: #666;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 110px 0;
+}
+
+.section-label {
+    color: #8b5cf6;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    color: #999;
+    max-width: 700px;
+    font-size: 17px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 55px;
+}
+
+.about-text p {
+    color: #aaa;
+    margin-bottom: 18px;
+}
+
+.quote {
+    border-left: 2px solid #8b5cf6;
+    padding-left: 20px;
+    color: #ddd;
+    font-size: 20px;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 50px;
+}
+
+.card {
+    border: 1px solid #202020;
+    border-radius: 14px;
+    padding: 30px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
+    );
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #444;
+}
+
+.card-icon {
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.card p {
+    color: #999;
+    font-size: 15px;
+}
+
+/* ARCHITECTURE */
+
+.architecture {
+    margin-top: 55px;
+    border: 1px solid #202020;
+    border-radius: 15px;
+    padding: 35px;
+    overflow-x: auto;
+}
+
+.architecture pre {
+    font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+    color: #aaa;
+    font-size: 15px;
+    line-height: 2;
+    min-width: 700px;
+}
+
+.architecture .highlight {
+    color: #a78bfa;
+}
+
+/* SCREENSHOT */
+
+.screenshot {
+    margin-top: 50px;
+    border: 1px solid #252525;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #0b0b0b;
+}
+
+.screenshot-top {
+    padding: 12px 18px;
+    border-bottom: 1px solid #222;
+    color: #777;
+    font-size: 13px;
+}
+
+.screenshot img {
+    width: 100%;
+    display: block;
+}
+
+.placeholder {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 15px;
+    text-align: center;
+    padding: 20px;
+}
+
+/* TECH STACK */
+
+.stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.tech {
+    border: 1px solid #292929;
+    padding: 11px 17px;
+    border-radius: 8px;
+    color: #bbb;
+    font-size: 14px;
+    background: #0a0a0a;
+}
+
+/* ROADMAP */
+
+.roadmap {
+    margin-top: 45px;
+    border-left: 1px solid #333;
+}
+
+.roadmap-item {
+    padding: 0 0 35px 30px;
+    position: relative;
+}
+
+.roadmap-item::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #8b5cf6;
+    position: absolute;
+    left: -5px;
+    top: 8px;
+}
+
+.roadmap-item.done::before {
+    background: #22c55e;
+}
+
+.roadmap-item h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.roadmap-item p {
+    color: #888;
+    font-size: 14px;
+}
+
+/* GITHUB */
+
+.github-section {
+    text-align: center;
+    border: 1px solid #222;
+    border-radius: 18px;
+    padding: 80px 30px;
+    background: linear-gradient(
+        145deg,
+        rgba(139,92,246,0.08),
+        rgba(37,99,235,0.04)
+    );
+}
+
+.github-section p {
+    color: #999;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #1b1b1b;
+    padding: 35px 0;
+    color: #666;
+    font-size: 13px;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-socials a {
+    color: #888;
+    transition: color 0.2s;
+}
+
+.footer-socials a:hover {
+    color: #fff;
+}
+
+/* Scroll-reveal (JS adds .in-view when a section enters the viewport) */
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .card,
+    .btn-primary {
+        transition: none;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background: #0a0a0a;
+        border-bottom: 1px solid #1b1b1b;
+        flex-direction: column;
+        gap: 0;
+        display: none;
+        z-index: 20;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 16px 6%;
+        width: 100%;
+        border-bottom: 1px solid #161616;
+    }
+
+    .nav-right {
+        gap: 10px;
+    }
+
+    .social-links {
+        display: none;
+    }
+
+    .footer-socials {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav {
+        height: 65px;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 80px 0;
+    }
+
+    .about-grid,
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .architecture {
+        padding: 20px;
+    }
+
+    .architecture pre {
+        font-size: 12px;
+    }
+
+    footer .container {
+        flex-direction: column;
+    }
+}
